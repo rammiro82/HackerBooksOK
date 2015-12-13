@@ -63,9 +63,9 @@ class LibraryTableViewController: UITableViewController {
         let booksForTag = self.biblioteca!.booksForTag(tag)
         let book = booksForTag?[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("bookCellId", forIndexPath: indexPath) as! BookTableViewCell
         
-        cell.textLabel?.text = book!.title
+        cell.lblTitle.text = book?.title
         
         /*
         cell.lblTitle.text = book?.title
@@ -78,6 +78,10 @@ class LibraryTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+
     
     // MARK: - Segues
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {

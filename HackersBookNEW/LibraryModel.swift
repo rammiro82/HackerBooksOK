@@ -47,7 +47,7 @@ class Library {
     
     // Cantidad de libros que hay en una temática
     func bookCountForTag(tag: String) -> Int{
-        guard !tags.contains(tag) else{
+        guard tags.contains(tag) else{
             return 0
         }
         
