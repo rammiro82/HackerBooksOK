@@ -10,7 +10,7 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
-    var detailViewController: DetailViewController? = nil
+    var pdfViewController: PDFViewController? = nil
     //var bibilioteca = Library()
 
 
@@ -25,7 +25,7 @@ class MasterViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            self.pdfViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? PDFViewController
         }
         
     }

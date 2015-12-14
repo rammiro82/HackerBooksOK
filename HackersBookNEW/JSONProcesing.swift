@@ -49,12 +49,14 @@ func decode(book json: JSONDictionary) throws -> Book{
     
     // Nos metemos en el mundo imaginario de Yupi donde todo funciona y nada es nil
     guard let urlStringImage = json[JSONKeys.imageUrl.rawValue] as? String,
-        imageUrl = NSURL(string: urlStringImage) else{
+        escapedImgURLString = urlStringImage.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()),
+        imageUrl = NSURL(string: escapedImgURLString) else{
             throw JSONProcessingError.WrongURLFormatForJSONResource
     }
     
     guard let urlStringPdf = json[JSONKeys.pdfUrl.rawValue] as? String,
-         pdfUrl = NSURL(string: urlStringPdf) else{
+    escapedPdfURLString = urlStringPdf.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()),
+         pdfUrl = NSURL(string: escapedPdfURLString) else{
             throw JSONProcessingError.WrongURLFormatForJSONResource
     }
     

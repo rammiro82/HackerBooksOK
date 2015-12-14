@@ -63,22 +63,20 @@ class LibraryTableViewController: UITableViewController {
         let booksForTag = self.biblioteca!.booksForTag(tag)
         let book = booksForTag?[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("bookCellId", forIndexPath: indexPath) as! BookTableViewCell
+        let cellID = "bookCellId"
         
-        cell.lblTitle.text = book?.title
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! BookTableViewCell
         
-        /*
         cell.lblTitle.text = book?.title
         cell.lblAuthors.text = book?.authors.joinWithSeparator(", ")
         
         if let data = NSData(contentsOfURL: (book?.urlImage)!){
-        cell.imgBook.image = UIImage(data: data)
+            cell.bookImage.image = UIImage(data: data)
         }
-        */
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
         return 50.0
     }
 
@@ -89,14 +87,18 @@ class LibraryTableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Averiguar si el segue en cuestión es el correcto
-        if segue.identifier == "showDetail" {
-            // Este es el correcto
-            let destVC = segue.destinationViewController as? DetailViewController
-            
-            let ip = self.tableView.indexPathForSelectedRow
-            let book = biblioteca?.bookAtIndex( "cvs", index: (ip?.section)!)
-            destVC?.detailItem = book
+        if segue.identifier == "pdfWebView" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                
+                let tag = self.biblioteca!.tags[indexPath.section]
+                let booksForTag = self.biblioteca!.booksForTag(tag)
+                let book = booksForTag?[indexPath.row]
+                
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! PDFViewController
+                controller.bookDetail = book
+                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
         }
     }
     
