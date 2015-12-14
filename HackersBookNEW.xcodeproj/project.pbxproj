@@ -19,6 +19,7 @@
 		286D73B11C1E17DB007EDCFB /* LibraryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D73B01C1E17DB007EDCFB /* LibraryTableViewController.swift */; };
 		286D73B41C1E23FD007EDCFB /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D73B31C1E23FD007EDCFB /* BookTableViewCell.swift */; };
 		286D73B61C1E7F3F007EDCFB /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D73B51C1E7F3F007EDCFB /* PDFViewController.swift */; };
+		286D73BA1C1E9779007EDCFB /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 286D73B91C1E9779007EDCFB /* Readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		286D73B01C1E17DB007EDCFB /* LibraryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewController.swift; sourceTree = "<group>"; };
 		286D73B31C1E23FD007EDCFB /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		286D73B51C1E7F3F007EDCFB /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		286D73B91C1E9779007EDCFB /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		286D73781C1DEC46007EDCFB = {
 			isa = PBXGroup;
 			children = (
+				286D73B91C1E9779007EDCFB /* Readme.md */,
 				286D73831C1DEC46007EDCFB /* HackersBookNEW */,
 				286D739A1C1DEC47007EDCFB /* HackersBookNEWTests */,
 				286D73821C1DEC46007EDCFB /* Products */,
@@ -263,6 +266,7 @@
 				286D73871C1DEC46007EDCFB /* MasterViewController.swift in Sources */,
 				286D73AA1C1DECED007EDCFB /* JSONProcesing.swift in Sources */,
 				286D73851C1DEC46007EDCFB /* AppDelegate.swift in Sources */,
+				286D73BA1C1E9779007EDCFB /* Readme.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
