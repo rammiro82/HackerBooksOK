@@ -11,11 +11,17 @@ import UIKit
 class PDFViewController: UIViewController {
     @IBOutlet weak var pdfWebView: UIWebView!
     
+    @IBOutlet weak var favButton: DOFavoriteButton!
+    
+    
     var bookDetail: Book?
     
     func configureView() {
         // Update the user interface for the detail item.
         do{
+            
+            favButton.addTarget(self, action: Selector("tapped:"), forControlEvents: .TouchUpInside)
+            
             if bookDetail != nil {
                 let request = NSURLRequest(URL: (bookDetail?.urlPDF)!)
                 pdfWebView.loadRequest(request)
@@ -32,5 +38,16 @@ class PDFViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func tapped(sender: DOFavoriteButton) {
+        if sender.selected {
+            // deselect
+            sender.deselect()
+        } else {
+            // select with animation
+            sender.select()
+        }
     }
 }

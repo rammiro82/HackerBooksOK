@@ -34,8 +34,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="wBw-Fo-FKg">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="vZO-mn-i7h"/>
+                                    <barButtonItem style="plain" id="S7p-21-3vE">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JJg-Ia-akZ" customClass="DOFavoriteButton" customModule="HackersBookNEW" customModuleProvider="target">
+                                            <rect key="frame" x="285" y="7" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="image" value="like.png"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="imageColorOn">
+                                                    <color key="value" red="1" green="0.73725490196078436" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="imageColorOff">
+                                                    <color key="value" red="0.6588235294117647" green="0.71372549019607845" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                    <color key="value" red="1" green="0.73725490196078436" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                    <color key="value" red="1" green="0.46274509803921571" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uYs-r8-kFA"/>
+                                </items>
+                            </toolbar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hp7-uT-yCa">
-                                <rect key="frame" x="10" y="72" width="581" height="520"/>
+                                <rect key="frame" x="10" y="72" width="581" height="484"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
@@ -44,14 +74,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="hp7-uT-yCa" secondAttribute="trailing" constant="-11" id="2up-qt-Y4p"/>
+                            <constraint firstItem="wBw-Fo-FKg" firstAttribute="centerX" secondItem="hp7-uT-yCa" secondAttribute="centerX" id="MLv-KK-dCJ"/>
                             <constraint firstItem="hp7-uT-yCa" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="8" id="YYc-1I-YHM"/>
-                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="hp7-uT-yCa" secondAttribute="bottom" constant="8" id="liV-j3-lHi"/>
+                            <constraint firstItem="wBw-Fo-FKg" firstAttribute="top" secondItem="hp7-uT-yCa" secondAttribute="bottom" id="meS-gS-Hbl"/>
                             <constraint firstItem="hp7-uT-yCa" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="-10" id="miv-TB-Vyx"/>
+                            <constraint firstItem="wBw-Fo-FKg" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="nnh-O3-Pnk"/>
+                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="wBw-Fo-FKg" secondAttribute="bottom" id="qv2-kH-XID"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="favButton" destination="JJg-Ia-akZ" id="DBT-Tp-nTC"/>
                         <outlet property="pdfWebView" destination="hp7-uT-yCa" id="AVd-fb-pNm"/>
                     </connections>
                 </viewController>
@@ -98,14 +132,14 @@
                                             <rect key="frame" x="87" y="12" width="505" height="29"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="authors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pap-Si-q72">
                                             <rect key="frame" x="87" y="49" width="505" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -150,6 +184,9 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="like.png" width="128" height="128"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2859C1201C2120B800EC863D /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 2859C11F1C2120B800EC863D /* like.png */; };
+		2859C1231C21214600EC863D /* DOFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859C1211C21214600EC863D /* DOFavoriteButton.swift */; };
+		2859C1241C21214600EC863D /* flatIconImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2859C1221C21214600EC863D /* flatIconImage.png */; };
 		286D73851C1DEC46007EDCFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D73841C1DEC46007EDCFB /* AppDelegate.swift */; };
 		286D73871C1DEC46007EDCFB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D73861C1DEC46007EDCFB /* MasterViewController.swift */; };
 		286D738C1C1DEC46007EDCFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286D738A1C1DEC46007EDCFB /* Main.storyboard */; };
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2859C11F1C2120B800EC863D /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
+		2859C1211C21214600EC863D /* DOFavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFavoriteButton.swift; sourceTree = "<group>"; };
+		2859C1221C21214600EC863D /* flatIconImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatIconImage.png; sourceTree = "<group>"; };
 		286D73811C1DEC46007EDCFB /* HackersBookNEW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackersBookNEW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286D73841C1DEC46007EDCFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286D73861C1DEC46007EDCFB /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +76,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2859C11E1C21201600EC863D /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				2859C1211C21214600EC863D /* DOFavoriteButton.swift */,
+				2859C1221C21214600EC863D /* flatIconImage.png */,
+				2859C11F1C2120B800EC863D /* like.png */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		286D73781C1DEC46007EDCFB = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +108,7 @@
 		286D73831C1DEC46007EDCFB /* HackersBookNEW */ = {
 			isa = PBXGroup;
 			children = (
+				2859C11E1C21201600EC863D /* Framework */,
 				286D73AB1C1DECFA007EDCFB /* Models */,
 				286D73A81C1DECE3007EDCFB /* JSON */,
 				286D73A71C1DECA5007EDCFB /* StoryBoards */,
@@ -238,6 +255,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2859C1241C21214600EC863D /* flatIconImage.png in Resources */,
+				2859C1201C2120B800EC863D /* like.png in Resources */,
 				286D73911C1DEC47007EDCFB /* LaunchScreen.storyboard in Resources */,
 				286D738E1C1DEC47007EDCFB /* Assets.xcassets in Resources */,
 				286D738C1C1DEC46007EDCFB /* Main.storyboard in Resources */,
@@ -266,6 +285,7 @@
 				286D73871C1DEC46007EDCFB /* MasterViewController.swift in Sources */,
 				286D73AA1C1DECED007EDCFB /* JSONProcesing.swift in Sources */,
 				286D73851C1DEC46007EDCFB /* AppDelegate.swift in Sources */,
+				2859C1231C21214600EC863D /* DOFavoriteButton.swift in Sources */,
 				286D73BA1C1E9779007EDCFB /* Readme.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
