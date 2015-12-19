@@ -25,6 +25,12 @@ class PDFViewController: UIViewController {
             if bookDetail != nil {
                 let request = NSURLRequest(URL: (bookDetail?.urlPDF)!)
                 pdfWebView.loadRequest(request)
+                
+                if (bookDetail!.isFavorite) {
+                    favButton.select()
+                }else{
+                    favButton.deselect()
+                }
             }
         }
     }
@@ -40,14 +46,24 @@ class PDFViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setTagFavourite (isFavourite: Bool){
+        if isFavourite {
+            bookDetail?.tags.append(Book.STR_BOOK_FAVOURITE)
+        }else{
+            bookDetail?.tags.removeAtIndex((bookDetail?.tags.indexOf(Book.STR_BOOK_FAVOURITE))!)
+        }
+    }
+    
     
     func tapped(sender: DOFavoriteButton) {
         if sender.selected {
             // deselect
             sender.deselect()
+            //setTagFavourite(false)
         } else {
             // select with animation
             sender.select()
+            //setTagFavourite(true)
         }
     }
 }

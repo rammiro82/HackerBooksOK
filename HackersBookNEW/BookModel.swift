@@ -11,19 +11,22 @@ import UIKit
 
 class Book: Equatable, Comparable{
     
+    static let STR_BOOK_FAVOURITE: String = "_Favourite"
+    
+    
     //MARK: - Properties
     let title : String
     let authors : [String]
-    let tags    : [String]
-    let urlImage: NSURL
-    let urlPDF  : NSURL
+    var tags    : [String]
+    var urlImage: NSURL
+    var urlPDF  : NSURL
     
-    var favorite : Bool {
+    var isFavorite : Bool {
         get{
             guard tags.count == 0 else{
-                return false
+                return tags.contains(Book.STR_BOOK_FAVOURITE)
             }
-            return true
+            return false
         }
     }
     

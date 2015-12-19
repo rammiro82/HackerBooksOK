@@ -12,7 +12,14 @@ class LibraryTableViewController: UITableViewController {
     
     var biblioteca : Library?
     
-    func loadData(){
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadData()
+    }
+    
+    
+    func loadData() -> Void{
         
         do{
             if let url = NSURL(string: Library.URL_JSON),
@@ -20,22 +27,11 @@ class LibraryTableViewController: UITableViewController {
                 libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray
             {
                 biblioteca = Library(books: decode(bookArray: libros))
-                
-                print("countBooks -> \(biblioteca?.countBooks)")
-                print("bookCountForTag -> \(biblioteca?.bookCountForTag("data mining"))")
-                print("booksForTag -> \(biblioteca?.booksForTag("data mining"))")
-                print("countBooks -> \(biblioteca?.countBooks)")
-                
+                //self.delegate?.didLibraryFinishedLoad(biblioteca.books)
             }
         }catch{
             print("Error: Parseando el JSON")
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,18 +86,39 @@ class LibraryTableViewController: UITableViewController {
         if segue.identifier == "pdfWebView" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 
-                let tag = self.biblioteca!.tags[indexPath.section]
-                let booksForTag = self.biblioteca!.booksForTag(tag)
-                let book = booksForTag?[indexPath.row]
                 
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! PDFViewController
-                controller.bookDetail = book
+                controller.bookDetail = getBookAtIndexPath(indexPath)
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
     
+    // MARK: - LibraryProtocol
+    
+    func didLibraryFinishedLoad(books: [Book]) {
+        self.tableView.reloadData()
+        
+        var pdfViewController: PDFViewController!
+        
+        if let detailNavigationController = self.splitViewController?.viewControllers.last as? UINavigationController {
+            pdfViewController = detailNavigationController.topViewController as? PDFViewController
+            
+            let indexPath = NSIndexPath(forRow: 0, inSection: 1)
+            pdfViewController.bookDetail = getBookAtIndexPath(indexPath)
+        }
+    }
+    
+    
+    func getBookAtIndexPath(indexPath: NSIndexPath) -> Book {
+        
+        let tag = self.biblioteca!.tags[indexPath.section]
+        let booksForTag = self.biblioteca!.booksForTag(tag)
+        let book = booksForTag?[indexPath.row]
+        
+        return book!
+    }
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

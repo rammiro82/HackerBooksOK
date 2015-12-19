@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		2859C1201C2120B800EC863D /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 2859C11F1C2120B800EC863D /* like.png */; };
 		2859C1231C21214600EC863D /* DOFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859C1211C21214600EC863D /* DOFavoriteButton.swift */; };
-		2859C1241C21214600EC863D /* flatIconImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2859C1221C21214600EC863D /* flatIconImage.png */; };
 		286D73851C1DEC46007EDCFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D73841C1DEC46007EDCFB /* AppDelegate.swift */; };
-		286D73871C1DEC46007EDCFB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D73861C1DEC46007EDCFB /* MasterViewController.swift */; };
 		286D738C1C1DEC46007EDCFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286D738A1C1DEC46007EDCFB /* Main.storyboard */; };
 		286D738E1C1DEC47007EDCFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286D738D1C1DEC47007EDCFB /* Assets.xcassets */; };
 		286D73911C1DEC47007EDCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286D738F1C1DEC47007EDCFB /* LaunchScreen.storyboard */; };
@@ -38,10 +36,8 @@
 /* Begin PBXFileReference section */
 		2859C11F1C2120B800EC863D /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
 		2859C1211C21214600EC863D /* DOFavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFavoriteButton.swift; sourceTree = "<group>"; };
-		2859C1221C21214600EC863D /* flatIconImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flatIconImage.png; sourceTree = "<group>"; };
 		286D73811C1DEC46007EDCFB /* HackersBookNEW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackersBookNEW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286D73841C1DEC46007EDCFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		286D73861C1DEC46007EDCFB /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		286D738B1C1DEC46007EDCFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		286D738D1C1DEC47007EDCFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		286D73901C1DEC47007EDCFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				2859C1211C21214600EC863D /* DOFavoriteButton.swift */,
-				2859C1221C21214600EC863D /* flatIconImage.png */,
 				2859C11F1C2120B800EC863D /* like.png */,
 			);
 			name = Framework;
@@ -133,7 +128,6 @@
 		286D73A61C1DEC96007EDCFB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				286D73861C1DEC46007EDCFB /* MasterViewController.swift */,
 				286D73B01C1E17DB007EDCFB /* LibraryTableViewController.swift */,
 				286D73B51C1E7F3F007EDCFB /* PDFViewController.swift */,
 			);
@@ -255,7 +249,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2859C1241C21214600EC863D /* flatIconImage.png in Resources */,
 				2859C1201C2120B800EC863D /* like.png in Resources */,
 				286D73911C1DEC47007EDCFB /* LaunchScreen.storyboard in Resources */,
 				286D738E1C1DEC47007EDCFB /* Assets.xcassets in Resources */,
@@ -282,7 +275,6 @@
 				286D73B11C1E17DB007EDCFB /* LibraryTableViewController.swift in Sources */,
 				286D73AE1C1DED0B007EDCFB /* BookModel.swift in Sources */,
 				286D73AF1C1DED0B007EDCFB /* LibraryModel.swift in Sources */,
-				286D73871C1DEC46007EDCFB /* MasterViewController.swift in Sources */,
 				286D73AA1C1DECED007EDCFB /* JSONProcesing.swift in Sources */,
 				286D73851C1DEC46007EDCFB /* AppDelegate.swift in Sources */,
 				2859C1231C21214600EC863D /* DOFavoriteButton.swift in Sources */,
