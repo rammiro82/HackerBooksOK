@@ -67,7 +67,7 @@ class Library {
         return nil
     }
     
-    private static func procesarTags(books: [Book]) -> ([String], [String:[Book]]){
+    static func procesarTags(books: [Book]) -> ([String], [String:[Book]]){
         var todasTags: [String] = []
         var auxTagsBooks: [String:[Book]] = Dictionary<String, Array<Book>>()
         

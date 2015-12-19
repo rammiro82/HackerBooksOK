@@ -49,11 +49,14 @@ class PDFViewController: UIViewController {
     func setTagFavourite (isFavourite: Bool){
         let index = biblioteca?.books.indexOf(bookDetail!)
         if isFavourite {
+            
             biblioteca?.books[index!].tags.append(Book.STR_BOOK_FAVOURITE)
-            biblioteca?.tags.append(Book.STR_BOOK_FAVOURITE)
         }else{
             biblioteca?.books[index!].tags.removeAtIndex((biblioteca?.books[index!].tags.indexOf(Book.STR_BOOK_FAVOURITE))!)
         }
+        
+        (biblioteca!.tags, biblioteca!.tagsBooks) = Library.procesarTags(biblioteca!.books)
+        
         NSNotificationCenter.defaultCenter().postNotificationName(Book.NOTIFICATION_BOOK_FAVOURITE, object: self)
     }
     
@@ -68,13 +71,5 @@ class PDFViewController: UIViewController {
             sender.select()
             setTagFavourite(true)
         }
-    }
-}
-
-
-extension PDFViewController: BookSelectedDelegate {
-    func bookSelected(aBook: Book, aBiblioteca: Library) {
-        bookDetail = aBook
-        biblioteca = aBiblioteca
     }
 }

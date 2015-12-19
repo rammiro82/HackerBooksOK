@@ -11,7 +11,6 @@ import UIKit
 class LibraryTableViewController: UITableViewController {
     
     var biblioteca      : Library?
-    weak var delegate   : BookSelectedDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,12 +129,6 @@ class LibraryTableViewController: UITableViewController {
         //biblioteca.
         self.tableView.reloadData()
     }
-}
-
-
-
-protocol BookSelectedDelegate: class {
-    func bookSelected(aBook: Book, aBiblioteca: Library)
 }
 
 

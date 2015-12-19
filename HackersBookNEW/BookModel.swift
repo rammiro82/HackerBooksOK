@@ -11,7 +11,7 @@ import UIKit
 
 class Book: Equatable, Comparable{
     
-    static let STR_BOOK_FAVOURITE: String = "_Favourite"
+    static let STR_BOOK_FAVOURITE: String = "AA_Favourite"
     static let NOTIFICATION_BOOK_FAVOURITE: String = "cambioTagFavorito"
     
     
