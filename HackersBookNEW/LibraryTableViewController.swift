@@ -10,13 +10,17 @@ import UIKit
 
 class LibraryTableViewController: UITableViewController {
     
-    var biblioteca : Library?
-    
+    var biblioteca      : Library?
+    weak var delegate   : BookSelectedDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let defaults = NSUserDefaults.standardUserDefaults()
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "updateLibraryViewData",
+            name: Book.NOTIFICATION_BOOK_FAVOURITE,
+            object: nil)
         
         if let data = defaults.dataForKey(Library.LOCAL_LIBRARY_DATA){
             //ya tenemos guardado la información
@@ -103,24 +107,10 @@ class LibraryTableViewController: UITableViewController {
                 
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! PDFViewController
                 controller.bookDetail = getBookAtIndexPath(indexPath)
+                controller.biblioteca = biblioteca
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
-        }
-    }
-    
-    // MARK: - LibraryProtocol
-    
-    func didLibraryFinishedLoad(books: [Book]) {
-        self.tableView.reloadData()
-        
-        var pdfViewController: PDFViewController!
-        
-        if let detailNavigationController = self.splitViewController?.viewControllers.last as? UINavigationController {
-            pdfViewController = detailNavigationController.topViewController as? PDFViewController
-            
-            let indexPath = NSIndexPath(forRow: 0, inSection: 1)
-            pdfViewController.bookDetail = getBookAtIndexPath(indexPath)
         }
     }
     
@@ -131,62 +121,21 @@ class LibraryTableViewController: UITableViewController {
         let booksForTag = self.biblioteca!.booksForTag(tag)
         let book = booksForTag?[indexPath.row]
         
+        //self.delegate?.bookSelected(book!, aBiblioteca: biblioteca!)
+        
         return book!
     }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    func updateLibraryViewData() {
+        //biblioteca.
+        self.tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+
+protocol BookSelectedDelegate: class {
+    func bookSelected(aBook: Book, aBiblioteca: Library)
+}
+
+
