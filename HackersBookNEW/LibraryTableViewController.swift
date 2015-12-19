@@ -15,19 +15,33 @@ class LibraryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let data = defaults.dataForKey(Library.LOCAL_LIBRARY_DATA){
+            //ya tenemos guardado la información
+            loadData(data)
+        }else{
+            if let url = NSURL(string: Library.URL_JSON),
+                data = NSData(contentsOfURL: url){
+                    loadData(data)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        defaults.setValue(data, forKey: Library.LOCAL_LIBRARY_DATA)
+                        defaults.synchronize()
+                    });
+            }
+        }
     }
     
     
-    func loadData() -> Void{
+    
+    func loadData(data : NSData) -> Void{
         
         do{
-            if let url = NSURL(string: Library.URL_JSON),
-                data = NSData(contentsOfURL: url),
-                libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray
+            if let libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray
             {
                 biblioteca = Library(books: decode(bookArray: libros))
-                //self.delegate?.didLibraryFinishedLoad(biblioteca.books)
             }
         }catch{
             print("Error: Parseando el JSON")
