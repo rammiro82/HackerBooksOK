@@ -55,8 +55,6 @@ class PDFViewController: UIViewController {
             biblioteca?.books[index!].tags.removeAtIndex((biblioteca?.books[index!].tags.indexOf(Book.STR_BOOK_FAVOURITE))!)
         }
         
-        (biblioteca!.tags, biblioteca!.tagsBooks) = Library.procesarTags(biblioteca!.books)
-        
         NSNotificationCenter.defaultCenter().postNotificationName(Book.NOTIFICATION_BOOK_FAVOURITE, object: self)
     }
     

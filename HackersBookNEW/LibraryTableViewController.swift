@@ -120,13 +120,11 @@ class LibraryTableViewController: UITableViewController {
         let booksForTag = self.biblioteca!.booksForTag(tag)
         let book = booksForTag?[indexPath.row]
         
-        //self.delegate?.bookSelected(book!, aBiblioteca: biblioteca!)
-        
         return book!
     }
     
     func updateLibraryViewData() {
-        //biblioteca.
+        (biblioteca!.tags, biblioteca!.tagsBooks) = Library.procesarTags(biblioteca!.books)
         self.tableView.reloadData()
     }
 }
